@@ -1,2 +1,3 @@
-# MSFS2020_Mobiflight
-My project of Aircraft panels for MSFS2020
+# Microsoft FS2020 & Mobiflight
+
+My projects of hardware Aircraft panels for MSFS2020
