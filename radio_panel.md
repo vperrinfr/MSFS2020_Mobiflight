@@ -1,4 +1,4 @@
-#Tutorial about how to setup a Radio Panel powered by Mobiflight
+# Tutorial about how to setup a Radio Panel powered by Mobiflight
 
 I will guide you to implement 8 digit 7-segment display and Rotary Encoders to create a Radio Panel via COM1 and Nav 1.
 
@@ -11,7 +11,7 @@ I will use these components:
 3- [7 segments LED module MAX7219](https://www.instructables.com/MAX7219-7-Segment-Using-Arduino/)
 4- [Rotary Encoder with push button KY-40](https://opencircuit.shop/Product/Rotary-encoder-module-KY-40)
 
-##Connection 
+## Connection 
 1- Connect 7-LED segment to Arduino card:
     VCC-5V (on top of pin #22)
     GND-GND
@@ -58,7 +58,7 @@ I will use these components:
     * Create "COM 1 Precondition" (to make condition when push the Pushbutton)
     Edit "COM 1 Precondition" with Custom Offset: 0x66C0 (number Zero, not character O)
 
-##How to have 6 digits instead of five ?
+## How to have 6 digits instead of five ?
 
 Do not use generic FSUIPC offset, use that one instead.
 * For COM1 Active, use offset 05C4
@@ -75,6 +75,8 @@ In my config for COM1 Active, i have the following values
 
 P.S: I had Transform box check with the value "$+10000", I changed it to "$".
 
+# How to swith MHz to KHz..
+
 * Input
     * Create "Push Button". When you push it, it will select MHz or KHz to tune freq
     * Create "MHz" to tune freq (ex: 126)
@@ -89,8 +91,11 @@ Edit "MHz"
 Input tab:
 Chose right Module (ex: Mega2560) and Device (ex: Push Button)
 Use preset according to FSUIPC Offset or Input Event ID
-On Left: Radio - COM1 Standby Freq MHz (-) Decrease
-On Right: Radio - COM1 Standby Freq MHz (+) Decrease
+On Left use Event ID XXXX Parameter 0 COM1_RADIO_WHOLE_DEC
+On Right use EventID XXXX Parameter 0 COM1_RADIO_WHOLE_INC
+On Left use Event ID 65640 Parameter 0 NAV1_RADIO_WHOLE_DEC
+On Right use EventID 65641 Parameter 0 NAV1_RADIO_WHOLE_INC
+
 Click Use button when done
 
 Precondition tab:
@@ -98,16 +103,28 @@ Select type Config item and chose config COM 1 Preconditon with value = 1
 Click Apply when done
 
 Edit "KHz": following edit MHz with preset or input Event ID
-On Left: Radio - COM1 Standby Freq KHz (-) Decrease
-On Right: Radio - COM1 Standby Freq KHz (+) Decrease
+On Left use EventID XXXX Parameter 0 COM1_RADIO_FRACT_DEC_CARRY
+On Right use EventID XXXX Parameter 0 COM1_RADIO_FRACT_INC_CARRY
+On Left use EventID 66445 Parameter 0 NAV1_RADIO_FRACT_DEC_CARRY
+On Right use EventID 66446 Parameter 0 NAV1_RADIO_FRACT_INC_CARRY
 
 and Precondition
 Select type Config item and chose config COM 1 Preconditon with value = 0
 
 Exit from Mobiflight software and restart again. I always close and restart MF after programming.
-Click Run and start FSX
+Click Run and start MSFS2020
 
 When you push the Push Button, the value will change from 0 to 1 and then 0 again
-When value = 1, it will activate "MHz" for you to change freq or value = 0, it will activate "GHz"
+When value = 1, it will activate "MHz" for you to change freq or value = 0, it will activate "KHz".
 
-Because I have just start doing with MF, Arduino then if I have anything wrong, please let me know. I will correct soon. Tks
+## How to swap radio frequence
+
+I didn't use FSUIPC offset, instead I used Event ID.
+
+For COM1 => 66372
+For COM2 => 66444
+For Nav1 => 66448
+
+Hope it helps...
+
+
