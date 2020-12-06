@@ -1,5 +1,8 @@
+#Tutorial about how to setup a Radio Panel powered by Mobiflight
+
 I will guide you to implement 8 digit 7-segment display and Rotary Encoders to create a Radio Panel via COM1 and Nav 1.
-[Pic](/pics/IMG_0734.JPG)
+
+![Pic](/pics/IMG_0734.JPG)
 
 I will use these components:
 
@@ -50,8 +53,7 @@ I will use these components:
 4- Config with Output and Input
 * Output:
     * Create "COM 1 STB" (shows COM1 Standby Radio to LED)
-    More detail about how to connect LED with Arduino card in this topic
-    https://www.mobiflight.com/en/tutorials/seven-segment-display.html
+    More detail about how to connect LED with Arduino card in this topic => [tutorial](https://www.mobiflight.com/en/tutorials/seven-segment-display.html).
 
     * Create "COM 1 Precondition" (to make condition when push the Pushbutton)
     Edit "COM 1 Precondition" with Custom Offset: 0x66C0 (number Zero, not character O)
