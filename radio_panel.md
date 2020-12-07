@@ -66,6 +66,8 @@ Do not use generic FSUIPC offset, use that one instead.
 * For COM2 Active, use offset 05C8
 * For COM2 Standby, use offset 05D0
 
+![Com1 pic](https://github.com/vperrinfr/MSFS2020_Mobiflight/blob/main/pics/screenshot2.png)
+
 In my config for COM1 Active, i have the following values
 * Offset : 0x05C4
 * Value Type : INT
@@ -91,10 +93,12 @@ Edit "MHz"
 Input tab:
 Chose right Module (ex: Mega2560) and Device (ex: Push Button)
 Use preset according to FSUIPC Offset or Input Event ID
-On Left use Event ID XXXX Parameter 0 COM1_RADIO_WHOLE_DEC
-On Right use EventID XXXX Parameter 0 COM1_RADIO_WHOLE_INC
+On Left use Event ID XXXX Parameter 0 COM_RADIO_WHOLE_DEC
+On Right use EventID XXXX Parameter 0 COM_RADIO_WHOLE_INC
 On Left use Event ID 65640 Parameter 0 NAV1_RADIO_WHOLE_DEC
 On Right use EventID 65641 Parameter 0 NAV1_RADIO_WHOLE_INC
+
+![COM_RADIO_WHOLE_DEC](https://github.com/vperrinfr/MSFS2020_Mobiflight/blob/main/pics/screenshot4.png)
 
 Click Use button when done
 
@@ -103,8 +107,8 @@ Select type Config item and chose config COM 1 Preconditon with value = 1
 Click Apply when done
 
 Edit "KHz": following edit MHz with preset or input Event ID
-On Left use EventID XXXX Parameter 0 COM1_RADIO_FRACT_DEC_CARRY
-On Right use EventID XXXX Parameter 0 COM1_RADIO_FRACT_INC_CARRY
+On Left use EventID XXXX Parameter 0 COM_RADIO_FRACT_DEC_CARRY
+On Right use EventID XXXX Parameter 0 COM_RADIO_FRACT_INC_CARRY
 On Left use EventID 66445 Parameter 0 NAV1_RADIO_FRACT_DEC_CARRY
 On Right use EventID 66446 Parameter 0 NAV1_RADIO_FRACT_INC_CARRY
 
@@ -124,6 +128,8 @@ I didn't use FSUIPC offset, instead I used Event ID.
 For COM1 => 66372
 For COM2 => 66444
 For Nav1 => 66448
+
+![swap](https://github.com/vperrinfr/MSFS2020_Mobiflight/blob/main/pics/screenshot5.png)
 
 Hope it helps...
 
